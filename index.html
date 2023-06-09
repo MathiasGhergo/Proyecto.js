@@ -1,50 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Carrito de compras</title>
-  <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+  <title>Radar de Velocidad</title>
+  <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Carrito de compras</h1>
-  </header>
-
   <div class="container">
-    <table>
-      <thead>
-        <tr>
-          <th>Producto</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Vodka</td>
-          <td>$10.00</td>
-          <td>2</td>
-          <td>$20.00</td>
-        </tr>
-        <tr>
-          <td>Fernet</td>
-          <td>$15.00</td>
-          <td>1</td>
-          <td>$15.00</td>
-        </tr>
-        <tr>
-          <td>Gin</td>
-          <td>$5.00</td>
-          <td>3</td>
-          <td>$15.00</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="total">
-      <h2>Total: $50.00</h2>
-      <button>Comprar</button>
-    </div>
+    <h1>Radar de Velocidad</h1>
+    <input type="number" class="speed-input" placeholder="Ingrese la velocidad" id="speed-input">
+    <br>
+    <button class="submit-button" onclick="checkSpeed()">Comprobar velocidad</button>
+    <br>
+    <div class="result" id="result"></div>
   </div>
+  <script src="./js/main.js"></script>
 </body>
 </html>
