@@ -1,11 +1,12 @@
-let edad = parseInt(prompt("Por favor, ingrese su edad:"));
-
-  if (edad >= 18) {
-    alert("Bienvenido/a a la página.");
-  } else {
-    alert("Lo siento, debes ser mayor de 18 años para ingresar a esta página.");
-  }
-  function checkSpeed() {
+  let edad = parseInt(prompt("Por favor, ingrese su edad:"));
+  if (edad >= 18)
+  
+  { alert("Bienvenido/a a la página."); }
+   
+  else { alert("Lo siento, debes ser mayor de 18 años para ingresar a esta página.");
+  window.location.href = "https://proyecto-final-beta-ten.vercel.app/"; }
+    
+   function checkSpeed() {
     let speedInput = document.getElementById('speed-input').value;
     let resultElement = document.getElementById('result');
   
@@ -23,5 +24,3 @@ let edad = parseInt(prompt("Por favor, ingrese su edad:"));
       resultElement.innerHTML = "Excedido de velocidad";
     }
   }
-  
-  
