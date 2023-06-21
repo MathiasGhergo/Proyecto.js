@@ -6,21 +6,30 @@
   else { alert("Lo siento, debes ser mayor de 18 años para ingresar a esta página.");
   window.location.href = "https://proyecto-final-beta-ten.vercel.app/"; }
     
-   function checkSpeed() {
-    let speedInput = document.getElementById('speed-input').value;
-    let resultElement = document.getElementById('result');
+  function radarDeVelocidad() {
+    const cantidadVehiculos = parseInt(prompt("Ingrese la cantidad de vehículos a verificar:"));
   
-    if (speedInput >= 0 && speedInput <= 20) {
-      resultElement.innerHTML = "Baja velocidad";
-    } else if (speedInput > 20 && speedInput <= 60) {
-      resultElement.innerHTML = "Estás bien";
-    } else if (speedInput > 60 && speedInput <= 80) {
-      resultElement.innerHTML = "Velocidad permitida en avenidas";
-    } else if (speedInput > 80 && speedInput <= 119) {
-      resultElement.innerHTML = "Velocidad permitida en autopistas";
-    } else if (speedInput === 120) {
-      resultElement.innerHTML = "Velocidad permitida en rutas";
-    } else {
-      resultElement.innerHTML = "Excedido de velocidad";
+    for (let i = 0; i < cantidadVehiculos; i++) {
+      const velocidad = parseInt(prompt(`Ingrese la velocidad del vehículo ${i + 1} (en km/h):`));
+      let resultado;
+  
+      if (velocidad <= 60) {
+        resultado = "Dentro del límite de velocidad en zonas urbanas";
+      } else if (velocidad <= 80) {
+        resultado = "Dentro del límite de velocidad en avenidas";
+      } else if (velocidad <= 100) {
+        resultado = "Dentro del límite de velocidad en carreteras";
+      } else if (velocidad <= 120) {
+        resultado = "Dentro del límite de velocidad en autopistas";
+      } else if (velocidad <= 140) {
+        resultado = "Dentro del límite de velocidad en vías rápidas";
+      } else {
+        resultado = "Exceso de velocidad";
+      }
+  
+      alert(`Resultado para el vehículo ${i + 1}: ${resultado}`);
     }
   }
+  
+  radarDeVelocidad();
+  
