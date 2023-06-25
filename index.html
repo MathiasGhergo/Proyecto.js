@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Radar de Velocidad</title>
+  <title>Fórmula 1</title>
   <link rel="stylesheet" href="./styles/styles.css">
 </head>
-<body class="pic">
-  <main>
-    <h1>Radar</h1>
-  </main>
-  <script src="./js/main.js"></script>
+<body>
+  <h1>Pilotos de Fórmula 1</h1>
+  <label for="piloto-input">Nombre del piloto:</label>
+  <input type="text" id="piloto-input">
+  <button onclick="buscarPiloto()">Buscar</button>
+  <section class="flex">
+  <table id="pilots-table">
+    <tr>
+      <th>Nombre</th>
+    </tr>
+  </table>
+  <div id="piloto-info"></div>
+</div>
+</section> 
+<article>
+<div class="carousel">
+  <div class="carousel-items">
+      <img src="./img/salida_gp_2018_1.jpg" alt="Slide 1">
+    <img src="./img/collage-f1-2023-1676457380.jpg" alt="Slide 2">
+    <img src="./img/formula-1-2022-la-parrilla-de--4.jpg" alt="Slide 3">
+  </div>
+  <button class="carousel-control prev">&#8249;</button>
+  <button class="carousel-control next">&#8250;</button>
+</div>   
+</article>     
+<script src="./js/carrusel.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
