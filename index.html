@@ -5,30 +5,64 @@
   <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-  <h1>Pilotos de Fórmula 1</h1>
+  <header>
+  <div class="logo">
+    <img src="./img/log.jpg" alt="Fórmula 1 Logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Noticias</a></li>
+      <li><a href="#">Calendario</a></li>
+      <li><a href="#">Pilotos</a></li>
+      <li><a href="#">Equipos</a></li>
+      <li><a href="#">Resultados</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+  <h1>
   <label for="piloto-input">Nombre del piloto:</label>
   <input type="text" id="piloto-input">
   <button onclick="buscarPiloto()">Buscar</button>
-  <section class="flex">
+</h1>
+  <article class="flex">
   <table id="pilots-table">
     <tr>
       <th>Nombre</th>
     </tr>
   </table>
   <div id="piloto-info"></div>
-</div>
-</section> 
-<article>
-<div class="carousel">
-  <div class="carousel-items">
-      <img src="./img/salida_gp_2018_1.jpg" alt="Slide 1">
-    <img src="./img/collage-f1-2023-1676457380.jpg" alt="Slide 2">
-    <img src="./img/formula-1-2022-la-parrilla-de--4.jpg" alt="Slide 3">
+  <div class="carousel">
+    <div class="carousel-items">
+        <img src="./img/salida_gp_2018_1.jpg" alt="Slide 1">
+      <img src="./img/collage-f1-2023-1676457380.jpg" alt="Slide 2">
+      <img src="./img/f1.png" alt="Slide 3">
+    </div>
+    <button class="carousel-control prev">&#8249;</button>
+    <button class="carousel-control next">&#8250;</button>
+  </div>   
+</article> 
+</section>
+<section class="news-section">
+  <h2>Últimas noticias</h2>
+  <div class="news-container">
+    <div class="news-item">
+      <img src="./img/f.elconfidencial.com_original_d12_055_552_d12055552fce4757fcd295d1efa96516.jpg" alt="Noticia 1">
+      <h3>Fernando Alonso, el mejor jefe de equipo</h3>
+      <p>Fernando Alonso está ofreciendo un nivel altísimo en lo que va de campeonato. Salvo en la carrera de casa (donde fue séptimo), el ovetense ha estado siempre en posiciones de cabeza. De hecho, es el competidor con más podios del certamen, a excepción, claro está, del insaciable Max Verstappen. El '14' ha logrado seis cajones en las ocho citas disputadas.</p>
+      <a href="https://www.marca.com/motor/formula1/gp-austria/2023/06/25/6496e93746163f93768b459f.html" class="read-more">Leer más</a>
+    </div>
+    <div class="news-item">
+      <img src="./img/f.elconfidencial.com_original_636_ff2_3dd_636ff23ddaf3aa611736d04021b8bd3f.jpg" alt="Noticia 2">
+      <h3>Checo Pérez pilotará el Red Bull por las calles de Madrid</h3>
+      <p>El motor de un Fórmula 1 irrumpirá en las calles de Madrid el próximo 15 de julio. Con la ilusión de la ciudad por albergar un Gran Premio de Fórmula 1 en un futuro próximo, Red Bull ha anunciado que el RB7 de Checo Pérez rodará las calles del centro histórico de la capita.</p>
+      <a href="https://www.marca.com/motor/formula1/2023/06/26/64994d2cca4741bd558b45b7.html" class="read-more">Leer más</a>
+    </div>
   </div>
-  <button class="carousel-control prev">&#8249;</button>
-  <button class="carousel-control next">&#8250;</button>
-</div>   
-</article>     
+</section>
+</main>     
 <script src="./js/carrusel.js"></script>
   <script src="js/main.js"></script>
 </body>

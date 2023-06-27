@@ -1,6 +1,6 @@
 // Definición de la clase Piloto
 class Piloto {
-  constructor(nombre, equipo, nacionalidad, edad, campeonatos, carrerasGanadas, añosEnDeporte) {
+  constructor(nombre, equipo, nacionalidad, edad, campeonatos, carrerasGanadas, añosEnDeporte,) {
     this.nombre = nombre;
     this.equipo = equipo;
     this.nacionalidad = nacionalidad;
