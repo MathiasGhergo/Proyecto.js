@@ -1,6 +1,6 @@
 // Definición de la clase Piloto
 class Piloto {
-  constructor(nombre, equipo, nacionalidad, edad, campeonatos, carrerasGanadas, añosEnDeporte,) {
+  constructor(nombre, equipo, nacionalidad, edad, campeonatos, carrerasGanadas, añosEnDeporte) {
     this.nombre = nombre;
     this.equipo = equipo;
     this.nacionalidad = nacionalidad;
@@ -23,6 +23,9 @@ const pilotos = [
   new Piloto("Lance Stroll", "Aston Martin", "Canada", 24 , 0, 0, 2),
   new Piloto("George Rusell", "Aston Martin", "Reino Unido", 25 , 0, 1, 5),
 ];
+
+// Almacenar el array de pilotos en el Local Storage
+localStorage.setItem("pilotos", JSON.stringify(pilotos));
 
 // Función para mostrar los nombres de los pilotos en la tabla
 function mostrarNombresPilotos() {
@@ -73,3 +76,27 @@ function buscarPiloto() {
 
 // Llamar a la función para mostrar los nombres de los pilotos al cargar la página
 window.onload = mostrarNombresPilotos;
+
+ const cartItems = [];
+
+ function addToCart(productName, price) {
+   const item = {
+     name: productName,
+     price: price
+   };
+
+   cartItems.push(item);
+   displayCartItems();
+ }
+
+ function displayCartItems() {
+   const cartItemsElement = document.getElementById("cart-items");
+
+   cartItemsElement.innerHTML = "";
+
+   cartItems.forEach(item => {
+     const itemElement = document.createElement("p");
+     itemElement.textContent = `${item.name} - Precio: $${item.price}`;
+     cartItemsElement.appendChild(itemElement);
+   });
+ }
