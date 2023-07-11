@@ -76,27 +76,3 @@ function buscarPiloto() {
 
 // Llamar a la función para mostrar los nombres de los pilotos al cargar la página
 window.onload = mostrarNombresPilotos;
-
- const cartItems = [];
-
- function addToCart(productName, price) {
-   const item = {
-     name: productName,
-     price: price
-   };
-
-   cartItems.push(item);
-   displayCartItems();
- }
-
- function displayCartItems() {
-   const cartItemsElement = document.getElementById("cart-items");
-
-   cartItemsElement.innerHTML = "";
-
-   cartItems.forEach(item => {
-     const itemElement = document.createElement("p");
-     itemElement.textContent = `${item.name} - Precio: $${item.price}`;
-     cartItemsElement.appendChild(itemElement);
-   });
- }
