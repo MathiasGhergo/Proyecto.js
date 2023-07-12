@@ -1,5 +1,10 @@
 const cartItems = [];
 
+const storedCartItems = localStorage.getItem('cartItems');
+if (storedCartItems) {
+  cartItems.push(...JSON.parse(storedCartItems));
+}
+
 function addToCart(productName, price) {
   const item = {
     name: productName,
@@ -7,6 +12,7 @@ function addToCart(productName, price) {
   };
 
   cartItems.push(item);
+  saveCartItemsToLocalStorage();
   displayCartItems();
 }
 
@@ -35,7 +41,12 @@ function displayCartItems() {
 
 function removeCartItem(index) {
   cartItems.splice(index, 1);
+  saveCartItemsToLocalStorage();
   displayCartItems();
+}
+
+function saveCartItemsToLocalStorage() {
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
 
 window.onload = function() {
@@ -57,14 +68,17 @@ window.onload = function() {
   cartContainer.appendChild(cartItemsElement);
 
   document.body.appendChild(cartContainer);
+
+  displayCartItems();
 };
+
 function calculateTotal() {
-    totalPrice = 0;
-  
-    cartItems.forEach(item => {
-      totalPrice += item.price;
-    });
-  
-    const resultElement = document.getElementById('result');
-    resultElement.textContent = `Total: U$D${totalPrice}`;
-  }
+  totalPrice = 0;
+
+  cartItems.forEach(item => {
+    totalPrice += item.price;
+  });
+
+  const resultElement = document.getElementById('result');
+  resultElement.textContent = `Total: U$D${totalPrice}`;
+}
