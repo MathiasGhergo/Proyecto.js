@@ -10,7 +10,14 @@ function addToCart(productName, price) {
     name: productName,
     price: price
   };
-
+  
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Producto agregado',
+    showConfirmButton: false,
+    timer: 1500
+  })
   cartItems.push(item);
   saveCartItemsToLocalStorage();
   displayCartItems();
@@ -59,7 +66,6 @@ window.onload = function() {
       addToCart(productName, price);
     });
   }
-
   const cartContainer = document.createElement('div');
   cartContainer.id = 'cart-container';
 
@@ -81,4 +87,36 @@ function calculateTotal() {
 
   const resultElement = document.getElementById('result');
   resultElement.textContent = `Total: U$D${totalPrice}`;
+}
+function finishShopping() {
+  Swal.fire({
+    title: 'Confirmar compra',
+    text: '¿Estás seguro de que deseas finalizar la compra?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Sí',
+    cancelButtonText: 'No'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: 'Agregar tarjeta de Debito/crédito',
+        html: `
+        <div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzGwSwGTDW9U15ucermF4ytNzrw_mPcshtQw&usqp=CAU" alt="Imagen de tarjeta de crédito" width="50px">
+      </div>
+          <input type="text" id="card-number" placeholder="Número de tarjeta">
+          <input type="text" id="card-name" placeholder="Nombre del titular">
+          <input type="text" id="card-expiry" placeholder="Fecha de vencimiento">
+          <input type="text" id="card-cvv" placeholder="CVV">
+        `,
+        showCancelButton: true,
+        confirmButtonText: 'Finalizar compra',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('¡Compra realizada!', 'Gracias por tu compra', 'success');
+        }
+      });
+    }
+  });
 }
