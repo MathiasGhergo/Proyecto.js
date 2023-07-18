@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const carouselItems = carousel.querySelector('.carousel-items');
   const prevBtn = carousel.querySelector('.prev');
   const nextBtn = carousel.querySelector('.next');
+  
+const carouselItemsCards = document.querySelectorAll('.card .carousel-items img');
 
   let currentIndex = 0;
   let intervalId;
