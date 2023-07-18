@@ -48,11 +48,20 @@
 <h1>Tienda</h1>
 <article class="cascos">
   <div class="card">
-    <img src="./img/Ferrari.png" alt="Casco 1">
+    <div class="carousel">
+      <div class="carousel-items">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_601397-MLA49256792936_032022-O.webp" alt="Slide 1">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_803016-MLA49256882888_032022-O.webp" alt="Slide 2">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_654264-MLA49256782981_032022-O.webp" alt="Slide 3">
+      </div>
+      <button class="carousel-control prev">&#8249;</button>
+      <button class="carousel-control next">&#8250;</button>
+    </div>
     <h3>Casco Ferrari</h3>
     <p>Precio: USD650</p>
     <button class="add-to-cart" onclick="addToCart('Casco Ferrari', 650)">Añadir al carrito</button>
   </div>
+  
 
   <div class="card">
     <img src="./img/alpine.jpg" alt="Casco 2">
@@ -88,7 +97,7 @@
     <button onclick="finishShopping()">Finalizar compra</button>
   </div>
 </div>
-  <h2>Últimas noticias</h2>
+</section>
   <div class="news-container">
     <div class="news-item">
       <img src="./img/f.elconfidencial.com_original_d12_055_552_d12055552fce4757fcd295d1efa96516.jpg" alt="Noticia 1">
@@ -103,7 +112,6 @@
       <a href="https://www.marca.com/motor/formula1/2023/06/26/64994d2cca4741bd558b45b7.html" class="read-more">Leer más</a>
     </div>
   </div>
-</section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./js/carrito.js"></script>  

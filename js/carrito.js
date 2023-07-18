@@ -102,7 +102,7 @@ function finishShopping() {
         title: 'Agregar tarjeta de Debito/crédito',
         html: `
         <div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzGwSwGTDW9U15ucermF4ytNzrw_mPcshtQw&usqp=CAU" alt="Imagen de tarjeta de crédito" width="50px">
+        <img src="https://lh5.googleusercontent.com/-3DOjz5tMZPI/URP2PBvRU-I/AAAAAAAAjzI/vBzQ1U2_xz8/s640/tarjetas-de-creditos.jpg" alt="Imagen de tarjeta de crédito" width="50px">
       </div>
           <input type="text" id="card-number" placeholder="Número de tarjeta">
           <input type="text" id="card-name" placeholder="Nombre del titular">

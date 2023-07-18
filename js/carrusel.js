@@ -1,44 +1,46 @@
-const carousel = document.querySelector('.carousel');
-const carouselItems = carousel.querySelector('.carousel-items');
-const prevBtn = carousel.querySelector('.prev');
-const nextBtn = carousel.querySelector('.next');
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.carousel');
+  const carouselItems = carousel.querySelector('.carousel-items');
+  const prevBtn = carousel.querySelector('.prev');
+  const nextBtn = carousel.querySelector('.next');
 
-let currentIndex = 0;
-let intervalId;
+  let currentIndex = 0;
+  let intervalId;
 
-function moveToNextSlide() {
-  currentIndex++;
-  if (currentIndex >= carouselItems.children.length) {
-    currentIndex = 0;
+  function moveToNextSlide() {
+    currentIndex++;
+    if (currentIndex >= carouselItems.children.length) {
+      currentIndex = 0;
+    }
+    updateSlidePosition();
   }
-  updateSlidePosition();
-}
 
-function updateSlidePosition() {
-  const slideWidth = carouselItems.children[0].offsetWidth;
-  carouselItems.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-}
-
-function startAutoPlay() {
-  intervalId = setInterval(moveToNextSlide, 3000);
-}
-
-function stopAutoPlay() {
-  clearInterval(intervalId);
-}
-
-prevBtn.addEventListener('click', () => {
-  currentIndex--;
-  if (currentIndex < 0) {
-    currentIndex = carouselItems.children.length - 1;
+  function updateSlidePosition() {
+    const slideWidth = carouselItems.children[0].offsetWidth;
+    carouselItems.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
   }
-  updateSlidePosition();
-  stopAutoPlay();
-});
 
-nextBtn.addEventListener('click', () => {
-  moveToNextSlide();
-  stopAutoPlay();
-});
+  function startAutoPlay() {
+    intervalId = setInterval(moveToNextSlide, 3000);
+  }
 
-startAutoPlay();
+  function stopAutoPlay() {
+    clearInterval(intervalId);
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = carouselItems.children.length - 1;
+    }
+    updateSlidePosition();
+    stopAutoPlay();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    moveToNextSlide();
+    stopAutoPlay();
+  });
+
+  startAutoPlay();
+});
