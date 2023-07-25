@@ -14,7 +14,7 @@ header {
   display: flex;
   justify-content:space-around;
   align-items: center;
-  background-color: #e40505;
+  background: linear-gradient(90deg, rgba(36,0,0,1) 0%, rgba(121,9,9,1) 35%, rgba(203,3,3,1) 85%, rgba(255,0,0,1) 100%);
   padding: 10px;
   color: #fff;
 }
@@ -71,7 +71,6 @@ button {
   cursor: pointer;
   max-width: 400px;
 }
-
 .flex {
   display: flex;
 }
@@ -141,7 +140,7 @@ th, td {
     }
     
     .news-section h2 {
-      padding-top: 200px;
+      padding-top: 100px;
       text-align: center;
       font-size: 30px;
     }
@@ -178,6 +177,10 @@ th, td {
       text-decoration: none;
       font-weight: bold;
     }
+    .column{
+      display: flex;
+      
+    }
     .cascos{
       display: flex;
       flex-direction:row;
@@ -202,8 +205,8 @@ th, td {
       border-radius: 4px;
       padding: 16px;
       margin-bottom: 16px;
-      width:600px;
-      gap: 15px;
+      width:65%;
+      gap: 10px;
     }
 
     .card img {
@@ -213,7 +216,7 @@ th, td {
     .card h3 {
       margin: 0;
       margin-bottom: 12px;
-      font-size: 26px;
+      font-size: 20px;
     }
 
     .card p {
@@ -297,4 +300,21 @@ th, td {
   text-align: center; 
   margin-top: 20px;
     }
-    
+    footer {
+      height: 200px;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      justify-content: center;
+      text-align: center;
+      font-size: 16px;
+    }
+    footer h3 {
+      padding-bottom: 20px;
+    }
+    footer img {
+      height: 50px;
+      width: 50px;
+    }

@@ -1,4 +1,3 @@
-// Definición de la clase Piloto
 class Piloto {
   constructor(nombre, equipo, nacionalidad, edad, campeonatos, carrerasGanadas, añosEnDeporte) {
     this.nombre = nombre;
@@ -24,19 +23,35 @@ const pilotos = [
   new Piloto("George Rusell", "Aston Martin", "Reino Unido", 25 , 0, 1, 5),
 ];
 
-// Almacenar el array de pilotos en el Local Storage
-localStorage.setItem("pilotos", JSON.stringify(pilotos));
+async function guardarPilotosEnLocalStorage() {
+  try {
+    const jsonData = JSON.stringify(pilotos);
+    localStorage.setItem("pilotos", jsonData);
+    console.log("Datos de pilotos almacenados en el Local Storage.");
+  } catch (error) {
+    console.error("Error al guardar datos en el Local Storage:", error);
+  }
+}
 
-// Función para mostrar los nombres de los pilotos en la tabla
-function mostrarNombresPilotos() {
+async function obtenerPilotosDelLocalStorage() {
+  try {
+    const jsonData = localStorage.getItem("pilotos");
+    return JSON.parse(jsonData);
+  } catch (error) {
+    console.error("Error al obtener datos del Local Storage:", error);
+    return [];
+  }
+}
+
+async function mostrarNombresPilotos() {
   const table = document.getElementById("pilots-table");
 
-  // Limpiar la tabla antes de añadir los nombres de los pilotos
   while (table.rows.length > 1) {
     table.deleteRow(1);
   }
 
-  // Añadir los nombres de los pilotos a la tabla
+  const pilotos = await obtenerPilotosDelLocalStorage();
+
   pilotos.forEach(piloto => {
     const row = table.insertRow();
     const nombreCell = row.insertCell();
@@ -49,15 +64,12 @@ function mostrarNombresPilotos() {
   });
 }
 
-// Función para mostrar la información del piloto buscado
 function buscarPiloto() {
   const input = document.getElementById("piloto-input");
   const nombrePiloto = input.value.trim();
 
-  // Buscar el piloto en el array
   const pilotoEncontrado = pilotos.find(piloto => piloto.nombre.toLowerCase() === nombrePiloto.toLowerCase());
 
-  // Mostrar la información del piloto o un mensaje de error
   const infoDiv = document.getElementById("piloto-info");
   if (pilotoEncontrado) {
     infoDiv.innerHTML = `
@@ -74,5 +86,7 @@ function buscarPiloto() {
   }
 }
 
-// Llamar a la función para mostrar los nombres de los pilotos al cargar la página
-window.onload = mostrarNombresPilotos;
+window.onload = async function() {
+  await guardarPilotosEnLocalStorage();
+  mostrarNombresPilotos();
+};
