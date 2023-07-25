@@ -150,7 +150,6 @@ function finishShopping() {
           const cardExpiry = document.getElementById('card-expiry').value;
           const cardCVV = document.getElementById('card-cvv').value;
 
-          // Realizar las validaciones aquí
           if (!isValidCardNumber(cardNumber)) {
             Swal.showValidationMessage('El número de tarjeta no es válido');
           }
@@ -173,7 +172,6 @@ function finishShopping() {
   });
 }
 
-// Funciones de validación de tarjeta de crédito
 function isValidCardNumber(cardNumber) {
   return cardNumber.trim().length === 16;
 }
@@ -183,7 +181,7 @@ function isValidCardName(cardName) {
 }
 
 function isValidCardExpiry(cardExpiry) {
-  return cardExpiry.trim().length === 5; // Formato MM/YY
+  return cardExpiry.trim().length === 5; 
 }
 
 function isValidCardCVV(cardCVV) {
