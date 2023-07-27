@@ -1,30 +1,20 @@
-class Piloto {
-  constructor(nombre, equipo, nacionalidad, edad, campeonatos, carrerasGanadas, añosEnDeporte) {
-    this.nombre = nombre;
-    this.equipo = equipo;
-    this.nacionalidad = nacionalidad;
-    this.edad = edad;
-    this.campeonatos = campeonatos;
-    this.carrerasGanadas = carrerasGanadas;
-    this.añosEnDeporte = añosEnDeporte;
+async function cargarPilotosDesdeJSON() {
+  try {
+    const response = await fetch('../json/data.json');
+    if (!response.ok) {
+      throw new Error('Error al cargar el archivo JSON');
+    }
+    const pilotos = await response.json();
+    return pilotos;
+  } catch (error) {
+    console.error('Error al cargar el archivo JSON:', error);
+    return [];
   }
 }
 
-// Creación del array de objetos de pilotos
-const pilotos = [
-  new Piloto("Lewis Hamilton", "Mercedes", "Reino Unido", 36, 7, 100, 15),
-  new Piloto("Max Verstappen", "Red Bull Racing", "Países Bajos", 23, 2, 10, 6),
-  new Piloto("Charles Leclerc", "Ferrari", "Mónaco", 24, 0, 2, 4),
-  new Piloto("Lando Norris", "McLaren", "Reino Unido", 22, 0, 1, 3),
-  new Piloto("Valtteri Bottas", "Mercedes", "Finlandia", 32, 0, 9, 10),
-  new Piloto("Sergio Perez", "Red Bull Racing", "Mexico", 33, 0, 9, 8),
-  new Piloto("Fernando Alonso", "Aston Martin", "España", 41, 2, 32, 10),
-  new Piloto("Lance Stroll", "Aston Martin", "Canada", 24 , 0, 0, 2),
-  new Piloto("George Rusell", "Aston Martin", "Reino Unido", 25 , 0, 1, 5),
-];
-
 async function guardarPilotosEnLocalStorage() {
   try {
+    const pilotos = await cargarPilotosDesdeJSON();
     const jsonData = JSON.stringify(pilotos);
     localStorage.setItem("pilotos", jsonData);
     console.log("Datos de pilotos almacenados en el Local Storage.");
@@ -64,25 +54,44 @@ async function mostrarNombresPilotos() {
   });
 }
 
-function buscarPiloto() {
+function mostrarInfoPiloto(piloto) {
+  const infoDiv = document.getElementById("piloto-info");
+  infoDiv.innerHTML = `
+    <h2>${piloto.nombre}</h2>
+    <p><strong>Equipo:</strong> ${piloto.equipo}</p>
+    <p><strong>Nacionalidad:</strong> ${piloto.nacionalidad}</p>
+    <p><strong>Edad:</strong> ${piloto.edad}</p>
+    <p><strong>Campeonatos Mundiales:</strong> ${piloto.campeonatos}</p>
+    <p><strong>Carreras Ganadas:</strong> ${piloto.carrerasGanadas}</p>
+    <p><strong>Años en el Deporte:</strong> ${piloto.añosEnDeporte}</p>
+  `;
+}
+
+async function buscarPiloto() {
   const input = document.getElementById("piloto-input");
   const nombrePiloto = input.value.trim();
 
-  const pilotoEncontrado = pilotos.find(piloto => piloto.nombre.toLowerCase() === nombrePiloto.toLowerCase());
+  try {
+    const pilotos = await obtenerPilotosDelLocalStorage();
 
-  const infoDiv = document.getElementById("piloto-info");
-  if (pilotoEncontrado) {
-    infoDiv.innerHTML = `
-      <h2>${pilotoEncontrado.nombre}</h2>
-      <p><strong>Equipo:</strong> ${pilotoEncontrado.equipo}</p>
-      <p><strong>Nacionalidad:</strong> ${pilotoEncontrado.nacionalidad}</p>
-      <p><strong>Edad:</strong> ${pilotoEncontrado.edad}</p>
-      <p><strong>Campeonatos Mundiales:</strong> ${pilotoEncontrado.campeonatos}</p>
-      <p><strong>Carreras Ganadas:</strong> ${pilotoEncontrado.carrerasGanadas}</p>
-      <p><strong>Años en el Deporte:</strong> ${pilotoEncontrado.añosEnDeporte}</p>
-    `;
-  } else {
-    infoDiv.innerHTML = "<p>Piloto no encontrado</p>";
+    const pilotoEncontrado = pilotos.find(piloto => piloto.nombre.toLowerCase() === nombrePiloto.toLowerCase());
+
+    const infoDiv = document.getElementById("piloto-info");
+    if (pilotoEncontrado) {
+      infoDiv.innerHTML = `
+        <h2>${pilotoEncontrado.nombre}</h2>
+        <p><strong>Equipo:</strong> ${pilotoEncontrado.equipo}</p>
+        <p><strong>Nacionalidad:</strong> ${pilotoEncontrado.nacionalidad}</p>
+        <p><strong>Edad:</strong> ${pilotoEncontrado.edad}</p>
+        <p><strong>Campeonatos Mundiales:</strong> ${pilotoEncontrado.campeonatos}</p>
+        <p><strong>Carreras Ganadas:</strong> ${pilotoEncontrado.carrerasGanadas}</p>
+        <p><strong>Años en el Deporte:</strong> ${pilotoEncontrado.añosEnDeporte}</p>
+      `;
+    } else {
+      infoDiv.innerHTML = "<p>Piloto no encontrado</p>";
+    }
+  } catch (error) {
+    console.error("Error al buscar piloto:", error);
   }
 }
 

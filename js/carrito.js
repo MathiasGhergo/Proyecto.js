@@ -1,5 +1,4 @@
 let cartItems = [];
-
 async function obtenerCartItemsDelLocalStorage() {
   try {
     const storedCartItems = await fetchCartItemsFromLocalStorage();

@@ -1,0 +1,83 @@
+[
+  {
+    "nombre": "Lewis Hamilton",
+    "equipo": "Mercedes",
+    "nacionalidad": "Gran Bretaña",
+    "edad": 36,
+    "campeonatos": 7,
+    "carrerasGanadas": 100,
+    "añosEnDeporte": 15
+  },
+  {
+    "nombre": "Max Verstappen",
+    "equipo": "Red Bull Racing",
+    "nacionalidad": "Países Bajos",
+    "edad": 23,
+    "campeonatos": 2,
+    "carrerasGanadas": 10,
+    "añosEnDeporte": 6
+  },
+  {
+    "nombre": "Charles Leclerc",
+    "equipo": "Ferrari",
+    "nacionalidad": "Mónaco",
+    "edad": 24,
+    "campeonatos": 0,
+    "carrerasGanadas": 2,
+    "añosEnDeporte": 4
+  },
+  {
+    "nombre": "Lando Norris",
+    "equipo": "Mclaren",
+    "nacionalidad": "Gran Bretaña",
+    "edad": 22,
+    "campeonatos": 0,
+    "carrerasGanadas": 1,
+    "añosEnDeporte": 3
+  },
+  {
+    "nombre": "Valtteri Bottas",
+    "equipo": "Mercedez",
+    "nacionalidad": "Finlandia",
+    "edad": 32,
+    "campeonatos": 0,
+    "carrerasGanadas": 9,
+    "añosEnDeporte": 10
+  },
+  {
+    "nombre": "Sergio Perez",
+    "equipo": "Red Bull Racing",
+    "nacionalidad": "Mexico",
+    "edad": 33,
+    "campeonatos": 0,
+    "carrerasGanadas": 9,
+    "añosEnDeporte": 8
+  },
+  {
+    "nombre": "Fernando Alonso",
+    "equipo": "Aston Martin",
+    "nacionalidad": "España",
+    "edad": 41,
+    "campeonatos": 2,
+    "carrerasGanadas": 32,
+    "añosEnDeporte": 10
+  },
+  {
+    "nombre": "Lance Stroll",
+    "equipo": "Aston Martin",
+    "nacionalidad": "Canada",
+    "edad": 24,
+    "campeonatos": 0,
+    "carrerasGanadas": 0,
+    "añosEnDeporte": 2
+  },
+  {
+    "nombre": "George Russel",
+    "equipo": "Mercedez",
+    "nacionalidad": "Gran Bretaña",
+    "edad": 25,
+    "campeonatos": 0,
+    "carrerasGanadas": 1,
+    "añosEnDeporte": 5
+  }
+]
